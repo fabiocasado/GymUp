@@ -2,14 +2,19 @@ package com.example.fcasado.gymup.storage;
 
 import android.support.annotation.NonNull;
 
-import com.example.fcasado.gymup.callbacks.IOnUsersRetrieved;
+import com.example.fcasado.gymup.callbacks.ILoginListener;
+import com.example.fcasado.gymup.callbacks.IOnGreetingRetrieved;
 import com.example.fcasado.gymup.callbacks.IStorageCompletion;
+import com.example.fcasado.gymup.callbacks.IUserRetriever;
 import com.example.fcasado.gymup.data.User;
+import com.facebook.AccessToken;
 
 /**
  * Created by fcasado on 4/18/16.
  */
 public interface IRemoteStorage {
-	void saveUser(User user, IStorageCompletion completionCallback);
-	void getUsers(@NonNull IOnUsersRetrieved onUsersRetrieved);
+	void authUser(AccessToken accessToken, ILoginListener loginListener);
+	void getUserData(String uid, IUserRetriever retriever);
+	void registerUser(User user, IStorageCompletion callback);
+	void unregisterUser(User user, IStorageCompletion callback);
 }

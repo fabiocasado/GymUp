@@ -7,6 +7,6 @@ import java.util.List;
 /**
  * Created by fcasado on 4/18/16.
  */
-public interface IOnUsersRetrieved {
-	void onUsersRetrieved(List<User> users);
+public interface IOnGreetingRetrieved {
+	void onGreetingRetrieved(List<User> users);
 }

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Gym Up</string>
+
+    <string name="facebook_app_id" translatable="false">1529977817308851</string>
 </resources>
