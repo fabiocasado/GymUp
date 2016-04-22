@@ -31,4 +31,8 @@ dependencies {
     compile 'com.firebase:firebase-client-android:2.5.2'
 
     compile 'com.facebook.android:facebook-android-sdk:4.+'
+
+    // Clean code helpers
+    compile 'com.hannesdorfmann.mosby:mvp:2.0.1'
+    compile 'com.jakewharton:butterknife:7.0.1'
 }

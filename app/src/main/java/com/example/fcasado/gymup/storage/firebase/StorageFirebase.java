@@ -3,6 +3,7 @@ package com.example.fcasado.gymup.storage.firebase;
 import com.example.fcasado.gymup.GymUp;
 import com.example.fcasado.gymup.callbacks.ILoginListener;
 import com.example.fcasado.gymup.callbacks.IStorageCompletion;
+import com.example.fcasado.gymup.callbacks.IUserProfileUpdated;
 import com.example.fcasado.gymup.callbacks.IUserRetriever;
 import com.example.fcasado.gymup.data.User;
 import com.example.fcasado.gymup.storage.IRemoteStorage;
@@ -106,6 +107,21 @@ public class StorageFirebase implements IRemoteStorage {
 					callback.onStorageError();
 				} else {
 					callback.onStorageSuccess();
+				}
+			}
+		});
+	}
+
+	@Override
+	public void updateUserProfile(final User user, final IUserProfileUpdated callback) {
+		Firebase userRef = rootRef.child(USERS_REF).child(user.getUid());
+		userRef.setValue(user, new Firebase.CompletionListener() {
+			@Override
+			public void onComplete(FirebaseError firebaseError, Firebase firebase) {
+				if (firebaseError != null) {
+					callback.onError();
+				} else {
+					callback.onSuccess(user);
 				}
 			}
 		});

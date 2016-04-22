@@ -2,4 +2,7 @@
     <string name="app_name">Gym Up</string>
 
     <string name="facebook_app_id" translatable="false">1529977817308851</string>
+
+    <string name="show_user_name">Show user name</string>
+    <string name="update_user_name">Update user name</string>
 </resources>

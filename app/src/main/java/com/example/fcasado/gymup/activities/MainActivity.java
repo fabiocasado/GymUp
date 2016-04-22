@@ -24,6 +24,9 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class MainActivity extends AppCompatActivity {
 	private CallbackManager callbackManager;
 	private AccessTokenTracker facebookAccessTokenTracker;
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		ButterKnife.bind(this);
 
 		startFacebookComponents();
 	}
@@ -166,5 +170,10 @@ public class MainActivity extends AppCompatActivity {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		callbackManager.onActivityResult(requestCode, resultCode, data);
+	}
+
+	@OnClick(R.id.bt_show_user_profile)
+	public void onShowUserProfileClicked() {
+		startActivity(new Intent(this, UserProfileActivity.class));
 	}
 }
